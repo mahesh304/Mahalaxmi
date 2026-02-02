@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nooo Tuniga! 💔🦋</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pink-light: #fff0f5;
+            --pink-soft: #ffb6c1;
+            --pink-medium: #ff85a2;
+            --pink-deep: #e75480;
+            --purple-soft: #e8d5f2;
+            --purple-medium: #b388eb;
+            --mint: #b5ead7;
+            --mint-dark: #7bed9f;
+            --white: #ffffff;
+            --text-dark: #4a3f44;
+            --gray-soft: #a0a0a0;
+            
+            --font-fun: 'Baloo 2', cursive;
+            --font-clean: 'Quicksand', sans-serif;
+            --font-marker: 'Permanent Marker', cursive;
+            --font-handwritten: 'Caveat', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-clean);
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(135deg, #d4d4d4 0%, #e8e8e8 50%, #d4d4d4 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            animation: fadeToGray 2s ease-out;
+        }
+
+        @keyframes fadeToGray {
+            0% { filter: saturate(1); }
+            100% { filter: saturate(0.5); }
+        }
+
+        /* TEAR RAIN */
+        .tear-rain {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tear {
+            position: absolute;
+            font-size: 18px;
+            animation: tearFall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes tearFall {
+            0% { transform: translateY(-30px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* MAIN CARD */
+        .no-card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 35px;
+            max-width: 450px;
+            width: 95%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .no-card::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background: linear-gradient(135deg, #ccc, #999);
+            border-radius: 38px;
+            z-index: -1;
+        }
+
+        /* CRYING CHARACTERS */
+        .crying-chars {
+            font-size: 80px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .crying-chars span {
+            display: inline-block;
+        }
+
+        .crying-chars .cat {
+            animation: cryCat 1s ease-in-out infinite;
+        }
+
+        .crying-chars .penguin {
+            animation: cryPenguin 1s ease-in-out infinite 0.2s;
+        }
+
+        @keyframes cryCat {
+            0%, 100% { transform: rotate(-10deg) translateY(0); }
+            50% { transform: rotate(10deg) translateY(-10px); }
+        }
+
+        @keyframes cryPenguin {
+            0%, 100% { transform: rotate(10deg) translateY(0); }
+            50% { transform: rotate(-10deg) translateY(-10px); }
+        }
+
+        .no-card h1 {
+            font-family: var(--font-marker);
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .no-card p {
+            font-family: var(--font-fun);
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .no-card .telugu {
+            font-family: var(--font-handwritten);
+            color: var(--pink-deep);
+            font-size: 1.3em;
+        }
+
+        /* BROKEN HEART */
+        .broken-heart {
+            font-size: 100px;
+            margin: 20px 0;
+            animation: heartBreak 2s ease-in-out infinite;
+        }
+
+        @keyframes heartBreak {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(0.9); }
+            75% { transform: scale(1.05); }
+        }
+
+        /* SAD MESSAGE BOX */
+        .sad-box {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border: 2px dashed #ccc;
+        }
+
+        .sad-box p {
+            margin: 0;
+            font-family: var(--font-clean);
+            color: #666;
+            font-style: italic;
+        }
+
+        /* BUTTONS */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-family: var(--font-fun);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--mint), var(--mint-dark));
+            color: #1a5a2d;
+            box-shadow: 0 10px 30px rgba(123, 237, 159, 0.4);
+            animation: hopefulPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes hopefulPulse {
+            0%, 100% { transform: scale(1); filter: saturate(1); }
+            50% { transform: scale(1.05); filter: saturate(1.5); }
+        }
+
+        .btn-yes:active { transform: scale(0.95); }
+
+        .btn-back {
+            background: linear-gradient(135deg, var(--pink-soft), var(--pink-medium));
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 133, 162, 0.3);
+        }
+
+        .btn-back:active { transform: scale(0.95); }
+
+        /* FLOATING */
+        .floating-sad {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .floating-char {
+            position: absolute;
+            animation: floatSad ease-in-out infinite;
+            font-size: 22px;
+            opacity: 0.5;
+        }
+
+        @keyframes floatSad {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* COLORS COME BACK ON HOVER OF YES */
+        body.color-hope {
+            animation: bringColorBack 0.5s forwards;
+        }
+
+        @keyframes bringColorBack {
+            to { filter: saturate(1); }
+        }
+
+        @media (min-width: 500px) {
+            .btn-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tear-rain" id="tearRain"></div>
+    <div class="floating-sad" id="floatingSad"></div>
+
+    <div class="no-card">
+        <div class="crying-chars">
+            <span class="cat">😭</span>
+            <span class="penguin">🦋</span>
+        </div>
+
+        <h1>Nooo Tuniga! 💔</h1>
+
+        <p>
+            You actually said no? 😢<br>
+            Look what you did to the butterflies!
+        </p>
+
+        <div class="broken-heart">💔</div>
+
+        <p class="telugu">"Em cheppali ra ippudu Mahalaxmi?" 😭</p>
+
+        <div class="sad-box">
+            <p>The world has lost all its colors...</p>
+            <p style="margin-top: 10px;">Just like my hope 😢</p>
+        </div>
+
+        <p>
+            <strong>But wait...</strong> You can still change your mind!<br>
+            <span class="telugu">"Inka time undi Mouni garu!" 🙏</span>
+        </p>
+
+        <div class="btn-container">
+            <a href="yes.html" class="btn btn-yes" id="yesBtn">Changed my mind - YES! 💚</a>
+            <a href="index.html" class="btn btn-back">Go Back 💕</a>
+        </div>
+    </div>
+
+    <script>
+        // TEAR RAIN
+        function createTearRain() {
+            const container = document.getElementById('tearRain');
+            const items = ['💧', '😢', '💔'];
+            
+            setInterval(() => {
+                const tear = document.createElement('span');
+                tear.className = 'tear';
+                tear.textContent = items[Math.floor(Math.random() * items.length)];
+                tear.style.left = Math.random() * 100 + '%';
+                tear.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(tear);
+                setTimeout(() => tear.remove(), 4000);
+            }, 200);
+        }
+
+        // FLOATING SAD
+        function createFloatingSad() {
+            const container = document.getElementById('floatingSad');
+            const items = ['😢', '💔', '😿', '🥺', '💧'];
+            
+            for (let i = 0; i < 8; i++) {
+                const char = document.createElement('span');
+                char.className = 'floating-char';
+                char.textContent = items[Math.floor(Math.random() * items.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.top = Math.random() * 100 + '%';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(char);
+            }
+        }
+
+        // BRING COLOR BACK ON YES HOVER
+        document.getElementById('yesBtn').addEventListener('mouseenter', function() {
+            document.body.classList.add('color-hope');
+        });
+
+        document.getElementById('yesBtn').addEventListener('mouseleave', function() {
+            document.body.classList.remove('color-hope');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createTearRain();
+            createFloatingSad();
+        });
+    </script>
+</body>
+</html>

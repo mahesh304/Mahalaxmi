@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pretty Please Tuniga! �💕</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pink-light: #fff0f5;
+            --pink-soft: #ffb6c1;
+            --pink-medium: #ff85a2;
+            --pink-deep: #e75480;
+            --purple-soft: #e8d5f2;
+            --purple-medium: #b388eb;
+            --mint: #b5ead7;
+            --mint-dark: #7bed9f;
+            --orange-warm: #ffb347;
+            --white: #ffffff;
+            --text-dark: #4a3f44;
+            
+            --font-fun: 'Baloo 2', cursive;
+            --font-clean: 'Quicksand', sans-serif;
+            --font-marker: 'Permanent Marker', cursive;
+            --font-handwritten: 'Caveat', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-clean);
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--purple-soft) 50%, var(--pink-light) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* SPARKLES */
+        .sparkle-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        /* MAIN CARD */
+        .convince-card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 35px;
+            max-width: 450px;
+            width: 95%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 25px 70px rgba(231, 84, 128, 0.2);
+        }
+
+        .convince-card::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-medium), var(--mint));
+            border-radius: 40px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { filter: blur(0px); }
+            50% { filter: blur(3px); }
+        }
+
+        /* BEGGING CHARACTERS */
+        .begging-chars {
+            font-size: 55px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .begging-chars span {
+            display: inline-block;
+            animation: beg 1s ease-in-out infinite;
+        }
+
+        .begging-chars span:nth-child(1) { animation-delay: 0s; }
+        .begging-chars span:nth-child(2) { animation-delay: 0.1s; }
+        .begging-chars span:nth-child(3) { animation-delay: 0.2s; }
+        .begging-chars span:nth-child(4) { animation-delay: 0.3s; }
+        .begging-chars span:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes beg {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .convince-card h1 {
+            font-family: var(--font-marker);
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            color: var(--pink-deep);
+            margin-bottom: 15px;
+        }
+
+        .convince-card h2 {
+            font-family: var(--font-fun);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: var(--purple-medium);
+            margin-bottom: 20px;
+        }
+
+        /* PLEADING BOX */
+        .plead-box {
+            background: linear-gradient(135deg, var(--pink-light), var(--purple-soft));
+            padding: 25px 20px;
+            border-radius: 25px;
+            margin: 20px 0;
+        }
+
+        .plead-box p {
+            font-family: var(--font-fun);
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .plead-box p:last-child { margin-bottom: 0; }
+
+        .plead-box .telugu {
+            font-family: var(--font-handwritten);
+            font-size: 1.3em;
+            color: var(--pink-deep);
+        }
+
+        /* GROWING CAT */
+        .cat-grow {
+            margin: 25px 0;
+        }
+
+        .cat-grow p {
+            font-family: var(--font-clean);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .growing-cat {
+            font-size: 60px;
+            display: inline-block;
+            transition: font-size 0.3s ease;
+            animation: catBounce 0.8s ease-in-out infinite;
+        }
+
+        @keyframes catBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* BUTTONS */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-family: var(--font-fun);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--mint), var(--mint-dark));
+            color: #1a5a2d;
+            box-shadow: 0 10px 30px rgba(123, 237, 159, 0.5);
+            animation: yesPlz 1s ease-in-out infinite;
+        }
+
+        @keyframes yesPlz {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); box-shadow: 0 15px 40px rgba(123, 237, 159, 0.7); }
+        }
+
+        .btn-yes:active { transform: scale(0.95); }
+
+        .btn-no {
+            background: transparent;
+            color: var(--pink-medium);
+            border: 2px dashed var(--pink-medium);
+            font-size: 0.95rem;
+            padding: 12px 25px;
+            opacity: 0.7;
+        }
+
+        /* Shrinking NO button */
+        .btn-no.shrinking {
+            animation: shrinkBtn 0.3s forwards;
+        }
+
+        @keyframes shrinkBtn {
+            to { transform: scale(0.9); opacity: 0.5; }
+        }
+
+        /* FLOATING */
+        .floating-cute {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .floating-char {
+            position: absolute;
+            animation: floatCute ease-in-out infinite;
+            font-size: 25px;
+        }
+
+        @keyframes floatCute {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @media (min-width: 500px) {
+            .btn-container {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkle-container" id="sparkles"></div>
+    <div class="floating-cute" id="floating"></div>
+
+    <div class="convince-card">
+        <div class="begging-chars">
+            <span>🦋</span>
+            <span>🙏</span>
+            <span>🥺</span>
+            <span>🙏</span>
+            <span>🦋</span>
+        </div>
+
+        <h1>Please Please Please! 🙏</h1>
+        <h2>Butterflies are literally begging, Tuniga! 😭</h2>
+
+        <div class="plead-box">
+            <p class="telugu">"Okka sari alochinchu Mouni garu!" 🤔</p>
+            <p>
+                Remember all those late night chats? 🌙<br>
+                All those laughs we shared? 😂<br>
+                Our Tuniga Friendship since 8th class! 💕
+            </p>
+            <p class="telugu">"Nenu entha special niku, cheppu Mouni garu?" 🥹</p>
+        </div>
+
+        <div class="cat-grow">
+            <p>The more you wait, the sadder the cat gets!</p>
+            <div class="growing-cat" id="growCat">😿</div>
+        </div>
+
+        <p style="font-family: var(--font-fun); color: var(--text-dark); margin-bottom: 10px;">
+            Just click YES and make everyone happy! 💚
+        </p>
+
+        <div class="btn-container">
+            <a href="yes.html" class="btn btn-yes">OKAY FINE YES! 💚🦋🦋</a>
+            <a href="no.html" class="btn btn-no" id="noBtn">Still no... 😔</a>
+        </div>
+    </div>
+
+    <script>
+        // SPARKLES
+        function createSparkles() {
+            const container = document.getElementById('sparkles');
+            
+            setInterval(() => {
+                const sparkle = document.createElement('span');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                sparkle.style.background = ['#ffb6c1', '#b388eb', '#b5ead7', '#fff'][Math.floor(Math.random() * 4)];
+                container.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 3000);
+            }, 100);
+        }
+
+        // FLOATING
+        function createFloating() {
+            const container = document.getElementById('floating');
+            const items = ['🐱', '🐧', '💕', '✨', '🙏', '💖'];
+            
+            for (let i = 0; i < 10; i++) {
+                const char = document.createElement('span');
+                char.className = 'floating-char';
+                char.textContent = items[Math.floor(Math.random() * items.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.top = Math.random() * 100 + '%';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                char.style.opacity = 0.6;
+                container.appendChild(char);
+            }
+        }
+
+        // NO BUTTON SHRINKS
+        document.getElementById('noBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.add('shrinking');
+            setTimeout(() => {
+                window.location.href = 'no.html';
+            }, 300);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createSparkles();
+            createFloating();
+        });
+    </script>
+</body>
+</html>

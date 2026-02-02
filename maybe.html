@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hmm... Think Again Tuniga! �</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pink-light: #fff0f5;
+            --pink-soft: #ffb6c1;
+            --pink-medium: #ff85a2;
+            --pink-deep: #e75480;
+            --purple-soft: #e8d5f2;
+            --purple-medium: #b388eb;
+            --mint: #b5ead7;
+            --mint-dark: #7bed9f;
+            --orange-warm: #ffb347;
+            --white: #ffffff;
+            --text-dark: #4a3f44;
+            
+            --font-fun: 'Baloo 2', cursive;
+            --font-clean: 'Quicksand', sans-serif;
+            --font-marker: 'Permanent Marker', cursive;
+            --font-handwritten: 'Caveat', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-clean);
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(135deg, var(--purple-soft) 0%, var(--pink-light) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* SAD ELEMENTS RAIN */
+        .sad-rain {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .raindrop {
+            position: absolute;
+            font-size: 20px;
+            animation: rainFall linear infinite;
+        }
+
+        @keyframes rainFall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0.5; }
+        }
+
+        /* MAIN CARD */
+        .maybe-card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 35px;
+            max-width: 450px;
+            width: 95%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 25px 70px rgba(179, 136, 235, 0.3);
+            animation: cardShake 0.6s ease-out;
+        }
+
+        @keyframes cardShake {
+            0%, 100% { transform: translateX(0) rotate(0); }
+            20% { transform: translateX(-15px) rotate(-2deg); }
+            40% { transform: translateX(15px) rotate(2deg); }
+            60% { transform: translateX(-10px) rotate(-1deg); }
+            80% { transform: translateX(10px) rotate(1deg); }
+        }
+
+        .maybe-card::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-medium));
+            border-radius: 38px;
+            z-index: -1;
+        }
+
+        .sad-characters {
+            font-size: 70px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sad-characters span {
+            display: inline-block;
+        }
+
+        .sad-characters .cat {
+            animation: sadCat 2s ease-in-out infinite;
+        }
+
+        .sad-characters .penguin {
+            animation: sadPenguin 2s ease-in-out infinite 0.3s;
+        }
+
+        @keyframes sadCat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        @keyframes sadPenguin {
+            0%, 100% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        .maybe-card h1 {
+            font-family: var(--font-marker);
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            color: var(--purple-medium);
+            margin-bottom: 15px;
+        }
+
+        .maybe-card p {
+            font-family: var(--font-fun);
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .maybe-card .telugu {
+            font-family: var(--font-handwritten);
+            color: var(--pink-deep);
+            font-size: 1.3em;
+        }
+
+        .maybe-card .abba {
+            color: var(--purple-medium);
+            font-weight: 700;
+        }
+
+        /* COUNTER */
+        .sad-counter {
+            background: linear-gradient(135deg, var(--pink-light), var(--purple-soft));
+            padding: 15px 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .sad-counter p {
+            font-family: var(--font-clean);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .sad-counter #seconds {
+            font-family: var(--font-marker);
+            font-size: 1.5rem;
+            color: var(--pink-deep);
+        }
+
+        /* BUTTONS */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-family: var(--font-fun);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--mint), var(--mint-dark));
+            color: #1a5a2d;
+            box-shadow: 0 8px 25px rgba(123, 237, 159, 0.4);
+            animation: yesGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes yesGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(123, 237, 159, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 10px 35px rgba(123, 237, 159, 0.6); }
+        }
+
+        .btn-yes:active { transform: scale(0.95); }
+
+        .btn-think {
+            background: linear-gradient(135deg, var(--orange-warm), var(--pink-medium));
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 179, 71, 0.4);
+        }
+
+        .btn-think:active { transform: scale(0.95); }
+
+        .btn-no {
+            background: transparent;
+            color: var(--purple-medium);
+            border: 2px solid var(--purple-medium);
+            font-size: 1rem;
+        }
+
+        .btn-no:active {
+            background: var(--purple-soft);
+        }
+
+        /* FLOATING ELEMENTS */
+        .floating-sad {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .floating-char {
+            position: absolute;
+            animation: floatSad ease-in-out infinite;
+            font-size: 25px;
+        }
+
+        @keyframes floatSad {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 500px) {
+            .btn-container {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SAD RAIN -->
+    <div class="sad-rain" id="sadRain"></div>
+    
+    <!-- FLOATING CHARACTERS -->
+    <div class="floating-sad" id="floatingSad"></div>
+
+    <!-- MAIN CARD -->
+    <div class="maybe-card">
+        <div class="sad-characters">
+            <span class="cat">🦋</span>
+            <span class="penguin">😢</span>
+        </div>
+
+        <h1>Oyee Tuniga! 🥺</h1>
+
+        <p>
+            <span class="abba">Wait wait wait!</span>
+            <br><br>
+            You clicked "Hmm..."? 
+            <br>
+            Look at these sad butterflies! 🦋😢
+        </p>
+
+        <p class="telugu">"Enti abba, enta alochistav Dear Mouni garu?" 🤔</p>
+
+        <div class="sad-counter">
+            <p>Butterflies are sad for <span id="seconds">0</span> seconds... 😢</p>
+        </div>
+
+        <p>
+            Come on Tuniga, you know you want to say <strong>YES!</strong>
+            <br>
+            <span class="telugu">"Please Mouni garu!" 🙏</span>
+        </p>
+
+        <div class="btn-container">
+            <a href="yes.html" class="btn btn-yes">Okay YES! 💚</a>
+            <a href="convince.html" class="btn btn-think">Still thinking... 🤔</a>
+            <a href="no.html" class="btn btn-no">No 😔</a>
+        </div>
+    </div>
+
+    <script>
+        // SAD RAIN
+        function createSadRain() {
+            const container = document.getElementById('sadRain');
+            const items = ['💧', '😢', '💔', '🥺'];
+            
+            setInterval(() => {
+                const drop = document.createElement('span');
+                drop.className = 'raindrop';
+                drop.textContent = items[Math.floor(Math.random() * items.length)];
+                drop.style.left = Math.random() * 100 + '%';
+                drop.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(drop);
+                setTimeout(() => drop.remove(), 4000);
+            }, 300);
+        }
+
+        // FLOATING SAD
+        function createFloatingSad() {
+            const container = document.getElementById('floatingSad');
+            const items = ['😿', '🥺', '💔', '🐧', '😢'];
+            
+            for (let i = 0; i < 8; i++) {
+                const char = document.createElement('span');
+                char.className = 'floating-char';
+                char.textContent = items[Math.floor(Math.random() * items.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.top = Math.random() * 100 + '%';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                char.style.opacity = 0.5;
+                container.appendChild(char);
+            }
+        }
+
+        // COUNTER
+        let seconds = 0;
+        setInterval(() => {
+            seconds++;
+            document.getElementById('seconds').textContent = seconds;
+        }, 1000);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createSadRain();
+            createFloatingSad();
+        });
+    </script>
+</body>
+</html>
