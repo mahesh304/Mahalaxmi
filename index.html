@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Oyee Tuniga!🦋💕</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
-    
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -884,261 +884,49 @@
 
         .buttons-container {
             display: flex;
-            flex-direction: row;
-            gap: 30px;
+            flex-direction: column;
+            gap: 15px;
             align-items: center;
-            justify-content: center;
-            margin-top: 30px;
-            position: relative;
-            min-height: 80px;
-            width: 100%;
         }
 
-        @media (max-width: 480px) {
-            .buttons-container {
-                gap: 20px;
-            }
-        }
-
-        /* ============================================
-           MAGICAL YES BUTTON
-           ============================================ */
         .btn {
-            padding: 18px 60px;
+            padding: 16px 45px;
             font-family: var(--font-fun);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             border: none;
             border-radius: 50px;
             cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-width: 150px;
+            gap: 8px;
+            min-width: 200px;
         }
 
         .btn-yes {
-            background: linear-gradient(135deg, #00b894, #00cec9, #0984e3, #6c5ce7, #fd79a8, #00b894);
-            background-size: 400% 400%;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            box-shadow: 
-                0 10px 40px rgba(0, 184, 148, 0.4),
-                0 0 60px rgba(108, 92, 231, 0.2),
-                inset 0 -4px 0 rgba(0,0,0,0.15),
-                inset 0 4px 0 rgba(255,255,255,0.2);
-            animation: yesRainbow 4s ease infinite, yesPulse 2s ease-in-out infinite, yesFloat 3s ease-in-out infinite;
-            z-index: 10;
+            background: linear-gradient(135deg, var(--mint), var(--mint-dark));
+            color: #1a5a2d;
+            box-shadow: 0 8px 25px rgba(123, 237, 159, 0.4);
+            animation: yesGlow 2s ease-in-out infinite;
         }
 
-        @keyframes yesRainbow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes yesGlow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(123, 237, 159, 0.4); }
+            50% { box-shadow: 0 8px 35px rgba(123, 237, 159, 0.7), 0 0 50px rgba(123, 237, 159, 0.3); }
         }
 
-        @keyframes yesPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-
-        @keyframes yesFloat {
-            0%, 100% { box-shadow: 0 10px 40px rgba(0, 184, 148, 0.4), 0 0 60px rgba(108, 92, 231, 0.2), inset 0 -4px 0 rgba(0,0,0,0.15), inset 0 4px 0 rgba(255,255,255,0.2); }
-            50% { box-shadow: 0 20px 60px rgba(0, 184, 148, 0.5), 0 0 80px rgba(108, 92, 231, 0.4), inset 0 -4px 0 rgba(0,0,0,0.15), inset 0 4px 0 rgba(255,255,255,0.2); }
-        }
-
-        .btn-yes::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            animation: btnShine 2.5s ease-in-out infinite;
-        }
-
-        @keyframes btnShine {
-            0% { left: -100%; }
-            50%, 100% { left: 150%; }
-        }
-
-        .btn-yes::after {
-            content: '';
-            display: none;
-        }
-
-        @keyframes starSpin {
-            0% { transform: rotate(0deg) scale(1); opacity: 1; }
-            50% { transform: rotate(180deg) scale(1.3); opacity: 0.7; }
-            100% { transform: rotate(360deg) scale(1); opacity: 1; }
-        }
-
-        .btn-yes:hover {
-            transform: scale(1.15) translateY(-5px);
-            box-shadow: 
-                0 25px 80px rgba(0, 184, 148, 0.5),
-                0 0 100px rgba(108, 92, 231, 0.4),
-                0 0 150px rgba(253, 121, 168, 0.3);
-        }
-
-        .btn-yes:active { transform: scale(1.05); }
-
-        /* ============================================
-           NO BUTTON - MOVES 20PX AWAY FROM CURSOR
-           ============================================ */
-        .no-btn-container {
-            display: none;
-        }
+        .btn-yes:active { transform: scale(0.95); }
 
         .btn-no {
-            background: linear-gradient(135deg, #dfe6e9, #b2bec3);
-            color: #636e72;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            font-size: 1.3rem;
-            font-weight: 700;
-            padding: 18px 60px;
-            min-width: 150px;
-            position: relative;
-            transition: all 0.15s ease-out;
-            z-index: 100;
-            white-space: nowrap;
+            background: linear-gradient(135deg, var(--pink-soft), var(--pink-medium));
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 133, 162, 0.4);
         }
 
-        @media (max-width: 480px) {
-            .btn-no {
-                font-size: 1.1rem;
-                padding: 15px 50px;
-                min-width: 130px;
-            }
-            .btn {
-                font-size: 1.1rem;
-                padding: 15px 50px;
-                min-width: 130px;
-            }
-        }
-
-        /* Magic sparkle trail */
-        .magic-sparkle {
-            position: absolute;
-            pointer-events: none;
-            font-size: 16px;
-            animation: sparkleFloat 0.8s ease-out forwards;
-            z-index: 99;
-        }
-
-        @keyframes sparkleFloat {
-            0% { opacity: 1; transform: scale(1) translateY(0); }
-            100% { opacity: 0; transform: scale(0.3) translateY(-20px); }
-        }
-
-        /* Heart trail */
-        .heart-trail {
-            position: absolute;
-            pointer-events: none;
-            color: var(--pink-deep);
-            font-size: 14px;
-            animation: heartRise 1s ease-out forwards;
-            z-index: 98;
-        }
-
-        @keyframes heartRise {
-            0% { opacity: 0.8; transform: scale(1) translateY(0) rotate(0deg); }
-            100% { opacity: 0; transform: scale(0.5) translateY(-40px) rotate(20deg); }
-        }
-
-        /* Button wiggle when running */
-        .btn-no.wiggle {
-            animation: wiggleRun 0.15s ease;
-        }
-
-        @keyframes wiggleRun {
-            0% { transform: translate(var(--tx), var(--ty)) rotate(0deg); }
-            25% { transform: translate(var(--tx), var(--ty)) rotate(-8deg); }
-            75% { transform: translate(var(--tx), var(--ty)) rotate(8deg); }
-            100% { transform: translate(var(--tx), var(--ty)) rotate(0deg); }
-        }
-
-        /* Magic aura around button */
-        .btn-no::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(45deg, 
-                rgba(255, 107, 157, 0.3), 
-                rgba(199, 125, 255, 0.3), 
-                rgba(107, 255, 255, 0.3));
-            border-radius: 35px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .btn-no.magic-active::before {
-            opacity: 1;
-            animation: auraGlow 0.5s ease infinite alternate;
-        }
-
-        @keyframes auraGlow {
-            0% { transform: scale(1); filter: blur(3px); }
-            100% { transform: scale(1.1); filter: blur(5px); }
-        }
-
-        /* Unused - hidden */
-        .victory-glow, .magic-message {
-            display: none;
-        }
-
-        /* Magic message */
-        .magic-message {
-            position: absolute;
-            bottom: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--font-handwritten);
-            font-size: 1.2rem;
-            color: var(--purple-medium);
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .magic-message.show {
-            animation: msgPop 2s ease forwards;
-        }
-
-        @keyframes msgPop {
-            0% { opacity: 0; transform: translateX(-50%) translateY(10px) scale(0.8); }
-            15% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1.05); }
-            85% { opacity: 1; }
-            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-        }
-
-        /* Glow effect */
-        .victory-glow {
-            position: absolute;
-            width: 200px;
-            height: 80px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(ellipse, rgba(0, 184, 148, 0.5) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: glowPulse 1s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 4;
-            display: none;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.8; }
-        }
+        .btn-no:active { transform: scale(0.95); }
 
         /* ============================================
            FOOTER
@@ -1674,10 +1462,10 @@
                     <span class="heart">💕</span>
                     <span class="butterfly" style="font-size: 70px; animation: butterflyFloat 3s ease-in-out infinite 0.5s;">🦋</span>
                 </div>
-                <span class="oyee-badge">Oyee Tuniga! 👋</span>
+                <span class="oyee-badge">HI Tuniga! 👋</span>
                 <h1>oka chinna surprise anukooo..<span class="name">Mounika! ✨</span></h1>
                 <p class="hero-subtitle">This is for you, my dear Tuniga! 🤗</p>
-                <p class="telugu-text">"Maybe You never expect I think, Mouni garu!" 🎁</p>
+                <p class="telugu-text">"Maybe Niku Nachutundi Anukuntuna😊" 🎁</p>
                 <p class="telugu-text" style="font-size: 1rem; margin-top: 5px;">Hoping!! Our Tuniga Friendship Forever! 💫</p>
             </div>
             <div class="scroll-indicator">
@@ -1696,8 +1484,8 @@
                 </div>
                 <h2>Abba! Oka Message Niku 💌</h2>
                 <p><span class="highlight">Oyee Tuniga!</span> Nuvvu telsa? Nuvvu chala Special friend, evariki dorakani type! 🤗</p>
-                <p>Ee Valentine's Day lu enduku manaki... Idi manaki, manam<span class="highlight">Tuniga Friendship</span> celebrate kosam! 🎉</p>
-                <p class="telugu">"U are My Best tuniga, Mahalaxmi garu!" 💫</p>
+                <p>Ee Valentine's Day lu enduku manaki... Idhi manaki, manam<span class="highlight">Tuniga Friendship</span> celebrate kosam! 🎉</p>
+                <p class="telugu">"U are My Best tuniga, Mounii garu!" 💫</p>
                 <p style="margin-top: 10px; font-size: 0.95rem;">From 8th class nunchi ippati varaku... 🦋💕</p>
             </div>
         </section>
@@ -1710,8 +1498,8 @@
                 <div class="bike-image-container">
                     <img src="bullet photo.jpg" alt="Bullet Bike - My Tuniga's Favorite" style="width: 100%; border-radius: 12px;">
                 </div>
-                <p>Bullet bike la, naa Tuniga kuda <strong>powerful</strong>, <strong>bold</strong>, and absolutely <strong>unstoppable!</strong> 🚀</p>
-                <p class="telugu">"Bullet meeda pothe, queen la untav, Mahalaxmi!" 👑</p>
+                <p>Bullet bike la, naa best friend kuda <strong>powerful</strong>, <strong>bold</strong>, and absolutely <strong>unstoppable!</strong> 🚀</p>
+                <p class="telugu">"Bullet meeda pothe, queen la untav emoo, ABBAA!" 👑</p>
             </div>
         </section>
 
@@ -1794,7 +1582,7 @@
                 <div class="reason-card">
                     <span class="reason-icon">🥤</span>
                     <h3>Straw Cup Queen</h3>
-                    <p>Cute straw cup tho water taagutav always! <em>"Straw cup lekunda ledhu!"</em></p>
+                    <p>Cute straw cup tho water taagutav always! <em>"Straw cup lekunda taagava inka😂!"</em></p>
                 </div>
                 <div class="reason-card">
                     <span class="reason-icon">🌙</span>
@@ -1809,14 +1597,14 @@
                 <div class="reason-card">
                     <span class="reason-icon">🤝</span>
                     <h3>True Tuniga</h3>
-                    <p>Nuvvu genuine friend! <em>"Real tuniga dorikav naku!"</em></p>
+                    <p>Nuvvu genuine friend! Abba<em>"naku oka Machi friend dorikindi!"</em></p>
                 </div>
             </div>
         </section>
 
         <!-- PHOTO GALLERY -->
         <section class="photo-gallery-section">
-            <h2>My Dear Tuniga 🤗💕</h2>
+            <h2>Angel cutiest photos🤗💕</h2>
             <p class="photo-gallery-subtitle">"MY Dear Special Tuniga!"</p>
             <div class="photo-grid">
                 <div class="photo-frame">
@@ -1835,7 +1623,7 @@
         </section>
 
         <!-- QUESTION -->
-        <section class="question-section">
+         <section class="question-section">
             <div class="question-card" id="questionCard">
                 <div class="question-characters">
                     <span style="font-size: 55px; display: inline-block; animation: butterflyFloat 2s ease-in-out infinite;">🦋</span>
@@ -2043,111 +1831,10 @@
             createMagicBurst(touch.clientX, touch.clientY);
         });
 
-        // ============================================
-        // RUNAWAY NO BUTTON - MOVES 100PX, STAYS ON PAGE
-        // ============================================
-        function setupRunawayButton() {
-            const noBtn = document.getElementById('noBtn');
-            
-            let offsetX = 0;
-            let offsetY = 0;
-            let lastMoveTime = 0;
-            
-            // Move 100px away from cursor, stay on page
-            function runAway(e) {
-                if (e) e.preventDefault();
-                
-                // Throttle
-                const now = Date.now();
-                if (now - lastMoveTime < 50) return;
-                lastMoveTime = now;
-                
-                // Get cursor position
-                let cursorX, cursorY;
-                if (e && e.touches) {
-                    cursorX = e.touches[0].clientX;
-                    cursorY = e.touches[0].clientY;
-                } else if (e && e.clientX) {
-                    cursorX = e.clientX;
-                    cursorY = e.clientY;
-                } else {
-                    return;
-                }
-                
-                // Get button position
-                const btnRect = noBtn.getBoundingClientRect();
-                const btnCenterX = btnRect.left + btnRect.width / 2;
-                const btnCenterY = btnRect.top + btnRect.height / 2;
-                
-                // Calculate direction away from cursor
-                let dirX = btnCenterX - cursorX;
-                let dirY = btnCenterY - cursorY;
-                
-                // Normalize and set to 150px
-                const dist = Math.sqrt(dirX * dirX + dirY * dirY) || 1;
-                dirX = (dirX / dist) * 150;
-                dirY = (dirY / dist) * 150;
-                
-                // Calculate new offset
-                let newOffsetX = offsetX + dirX;
-                let newOffsetY = offsetY + dirY;
-                
-                // Get screen bounds
-                const screenW = window.innerWidth;
-                const screenH = window.innerHeight;
-                const padding = 10;
-                
-                // Calculate where button would be after move
-                const origRect = noBtn.getBoundingClientRect();
-                const origLeft = origRect.left - offsetX;
-                const origTop = origRect.top - offsetY;
-                
-                const newLeft = origLeft + newOffsetX;
-                const newTop = origTop + newOffsetY;
-                const newRight = newLeft + btnRect.width;
-                const newBottom = newTop + btnRect.height;
-                
-                // Bounce off edges - reverse direction if hitting boundary
-                if (newLeft < padding || newRight > screenW - padding) {
-                    dirX = -dirX;
-                    newOffsetX = offsetX + dirX;
-                }
-                if (newTop < padding || newBottom > screenH - padding) {
-                    dirY = -dirY;
-                    newOffsetY = offsetY + dirY;
-                }
-                
-                // Update offset
-                offsetX = newOffsetX;
-                offsetY = newOffsetY;
-                
-                // Apply transform
-                noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            }
-            
-            // Event listeners
-            noBtn.addEventListener('mouseenter', runAway);
-            noBtn.addEventListener('mousemove', runAway);
-            noBtn.addEventListener('touchstart', runAway, { passive: false });
-            noBtn.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                runAway(e);
-            }, { passive: false });
-            
-            // Click - run away!
-            noBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                runAway(e);
-                return false;
-            });
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             createMagicParticles();
             createTwinklingStars();
             handleScrollAnimations();
-            setupRunawayButton();
             
             // Add rainbow line
             const rainbow = document.createElement('div');
